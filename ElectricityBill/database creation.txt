@@ -1,0 +1,19 @@
+heres the sql queries you need to execute to create the database for this project:
+
+CREATE DATABASE billin;
+USE billin;
+CREATE TABLE login(username varchar(10) primary key, meter_no varchar(10),name varchar(20), password varchar(8),usertype varchar(20));
+SELECT * FROM login;
+CREATE TABLE consumer_details(consumer_id varchar(10) primary key,username varchar(10), name varchar(15), meter_no varchar(10), division varchar(20), region varchar(20));
+CREATE TABLE meter_info(meter_no varchar(10) primary key,consumer_id varchar(10), meter_location varchar(20), type varchar(10));
+CREATE TABLE bill(bill_id varchar(10) primary key, consumer_id varchar(10),  meter_no varchar(10), units int, total_bill int, state varchar(10));
+CREATE TABLE tax(cost_per_unit int, service_tax int, gst int);
+INSERT INTO tax(cost_per_unit , service_tax , gst) VALUES (500 ,50 , 3);
+ALTER TABLE consumer_details ADD constraint som foreign key (username)
+references login(username);
+
+ALTER TABLE meter_info ADD constraint s1m foreign key (consumer_id)
+references consumer_details(consumer_id);
+
+ALTER TABLE bill ADD constraint s2m foreign key (consumer_id)
+references consumer_details(consumer_id);
