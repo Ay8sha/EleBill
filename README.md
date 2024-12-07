@@ -1,2 +1,1 @@
-src/pk1 has all the classes(actual code);
-database creation is the text document with all the sql queries to create the required database;
+Submitted by Zaiket Malik(23048112059), Roohi Bashir(23048112024), Rutba Javaid(23048112009), Ayesha Arshad(23048112023).
